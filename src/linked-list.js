@@ -50,7 +50,12 @@ class LinkedList {
         }   return false;
     }
 
-    clear() {}
+    clear() {
+        this.length = 0;
+        this._head.data = null;
+        this._tail.data = null;
+        return this;
+    }
 
     deleteAt(index) {}
 
