@@ -44,7 +44,11 @@ class LinkedList {
 
     insertAt(index, data) {}
 
-    isEmpty() {}
+    isEmpty() {
+        if (this.length === 0) {
+            return true;
+        }   return false;
+    }
 
     clear() {}
 
