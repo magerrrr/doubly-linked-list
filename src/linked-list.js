@@ -2,27 +2,22 @@ const Node = require('./node');
 
 class LinkedList {
     constructor() {
-        this._head = new Node();
-        this._tail = new Node();
+        this._head = null;
+        this._tail = null;
         this.length = 0;
     }
-    //Node это элемент list
-    append(data) { 
-        
+    append(data) {
+        let node = new Node(data);
         if (this.length === 0) {
-            this._head = new Node(data);
-            this._tail = new Node(data);
-            this.length++;
+            this._head = node;
+            this._tail = node;
         } else {
-            this._tail = this._head;
-            while(this._tail.next !== null) {
-                this._tail = this._tail.next;
-            }
-            this._tail.next = new Node(data);
-            this._tail.next.prev = this._tail;
-            this._tail = this._tail.next;
-            this.length++;
+            let currentNode = this._tail;
+            node.prev = currentNode;
+            currentNode.next = node;
+            this._tail = node;
         }
+        this.length++;
     } 
 
     head() {
@@ -35,14 +30,26 @@ class LinkedList {
 
     at(index) {
         let currentNode = this._head;
-        while (index != 0) {
+        while (index !== 0) {
             currentNode = currentNode.next;
             index--;
         }
         return currentNode.data;
     }
 
-    insertAt(index, data) {}
+    insertAt(index, data) {
+        let currentNode = this._head;
+        while (index !== 0) {
+            currentNode = currentNode.next;
+            index--;
+        }
+        let next = currentNode.next;
+        let prev = currentNode.prev;
+
+        let newNode = new Node(data, prev, currentNode);
+        currentNode.prev = newNode;
+        prev.next = newNode;
+    }
 
     isEmpty() {
         if (this.length === 0) {
@@ -57,7 +64,18 @@ class LinkedList {
         return this;
     }
 
-    deleteAt(index) {}
+    deleteAt(index) {
+        let currentNode = this._head;
+        while (index !== 0) {
+            currentNode = currentNode.next;
+            index--;
+        }
+        let next = currentNode.next;
+        let prev = currentNode.prev;
+
+        next.prev = prev;
+        prev.next = next;
+    }
 
     reverse() {}
 
