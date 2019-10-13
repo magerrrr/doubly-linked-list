@@ -78,16 +78,16 @@ class LinkedList {
     }
 
     reverse() {
-        let list = new LinkedList();
+        let reverseList = new LinkedList();
         
         let node = this._tail;
         while(node != null) {
-            list.append(node.data);
+            reverseList.append(node.data);
             node = node.prev; 
 
         }
-        this._head = list._head;
-        this._tail = list._tail;
+        this._head = reverseList._head;
+        this._tail = reverseList._tail;
     }
 
     indexOf(data) {}
