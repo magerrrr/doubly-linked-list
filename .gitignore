@@ -4,3 +4,4 @@ app.bundle.js
 app.bundle.js.map
 npm-debug*
 .idea
+.vscode

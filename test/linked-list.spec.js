@@ -153,7 +153,6 @@ describe('LinkedList', () => {
 
             expect(list.head()).to.equal(6);
             expect(list.tail()).to.equal(1);
-
             expect(list.at(1)).to.equal(5);
             expect(list.at(2)).to.equal(4);
             expect(list.at(3)).to.equal(3);
