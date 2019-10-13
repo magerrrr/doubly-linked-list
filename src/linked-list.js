@@ -79,30 +79,15 @@ class LinkedList {
 
     reverse() {
         let list = new LinkedList();
-
+        
         let node = this._tail;
         while(node != null) {
             list.append(node.data);
-            node = node.prev;
-            
+            node = node.prev; 
+
         }
-        console.log('this._head():', this._head);
-        console.log('this._tail():', this._tail);
-
-
-        this._head = list.head;
-        this._tail = list.tail;
-
-        console.log('list.head(): ', list.head());
-        console.log('list.tail(): ', list.tail());
-        console.log('');
-        console.log('this._head():', this._head());
-        console.log('this._tail():', this._tail());
-        console.log('');
-        console.log('list.at(1):', list.at(1));
-        console.log('list.at(2):', list.at(2));
-        console.log('list.at(3):', list.at(3));
-        console.log('list.at(4):', list.at(4));
+        this._head = list._head;
+        this._tail = list._tail;
     }
 
     indexOf(data) {}
